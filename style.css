@@ -1,3 +1,18 @@
+html {
+    scroll-behavior: smooth;
+}
+
+body * {
+    opacity: 0;
+    transform: translateX(-55px);
+    transition: opacity 1.5s ease-out, transform 1s ease-out;
+}
+
+.unlock {
+    transform: translateX(0);
+    opacity: 1;
+}
+
 body {
     margin: 0;
     display: flex;
@@ -49,6 +64,10 @@ h2, p {
     line-height: 20.83px;
     text-align: left;
     text-decoration-skip-ink: none;
+}
+
+.nav-link__li {
+    cursor: pointer;
 }
 
 .header__button {
@@ -303,6 +322,21 @@ h2, p {
     z-index: 2;
 
     background-image: url("img/images/switch/switchOffice.png");
+
+    opacity: 0;
+    transform: translateY(-115px);
+    transform: translateX(200px);
+    transition: opacity 0.1s ease-in-out, transform 1s ease-out;
+}
+
+.switcher-img.unlock.visible {
+    opacity: 1;
+    transform: translateY(0);
+    transform: translateX(0);
+}
+
+.switcher-img.unlock.visible:hover {
+    transform: translateX(10px);
 }
 
 .switcher-img-green-block {
@@ -355,6 +389,8 @@ h2, p {
 .active-button {
     color: #FFFFFF;
     background-color: #244D4D;;
+
+    transition: background-color 0.3s ease-in-out, transform 0.5s;
 }
 
 
@@ -440,6 +476,15 @@ h2, p {
     border-radius: 500px;
 
     background: #244D4D;
+
+    opacity: 0;
+    transform: translatex(-150px);
+    transition: opacity 1s ease-in-out, transform 2s;
+}
+
+.reccal-green-circle.unlock.visible-cirle {
+    opacity: 1;
+    transform: translate(0);
 }
 
 .container-subscribe {
