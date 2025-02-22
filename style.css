@@ -8,6 +8,10 @@ body * {
     transition: opacity 1.5s ease-out, transform 1s ease-out;
 }
 
+body.no-scroll {
+    overflow: hidden;
+}
+
 .buttonVersionMobile-explore {
     display: none;
 

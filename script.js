@@ -45,9 +45,11 @@ function handleClickButton (button) {
 
 function handleClickMenu () {
     headerNavLinkMenu.style.display ="flex";
+    document.body.classList.add("no-scroll");
 }
 headerNavLinksArray.forEach((button) => {
     button.addEventListener("click", () => {
+        document.body.classList.remove("no-scroll");
         button.textContent = `>${button.textContent}`;
         setTimeout(() => {
             let text = button.textContent.split("");
