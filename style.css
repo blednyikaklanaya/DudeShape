@@ -72,6 +72,10 @@ body.no-scroll {
     opacity: 1;
 }
 
+.uncorrect {
+    color: rgb(218, 102, 76);
+}
+
 body {
     margin: 0;
     display: flex;

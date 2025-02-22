@@ -7,6 +7,11 @@ let headerNavLinkMenu = document.getElementById("headerNavLinkMenu");
 let headerNavLinksArray = Array.from(document.getElementsByClassName("nav-link__li-mobile"));
 let headerButtonMenu = document.getElementById("buttonMenu");
 
+let inputForm = document.getElementsByClassName("input-email-form")[0];
+let inputSubscribeForm = document.getElementsByClassName("input-subscribe")[0];
+let buttonSendForm = document.getElementsByClassName("button-form")[0];
+let buttonSubscribeForm = document.getElementsByClassName("subscribe-button")[0];
+
 console.log(headerNavLinksArray); // debug
 
 function observerChecker (nameElement, nameClass, loaded) {
@@ -60,6 +65,21 @@ headerNavLinksArray.forEach((button) => {
     });
 })
 headerButtonMenu.addEventListener("click", handleClickMenu);
+
+const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+function emailRegexChecker (nameInput, nameButtonInput) {
+    nameInput.addEventListener("change", () => {
+        if (!emailRegex.test(nameInput.value)) {
+            nameInput.classList.add("uncorrect");
+            nameButtonInput.disabled = true;
+        } else {
+            nameInput.classList.remove("uncorrect");
+            nameButtonInput.disabled = false;
+        }
+    });
+}
+emailRegexChecker(inputForm, buttonSendForm);
+emailRegexChecker(inputSubscribeForm, buttonSubscribeForm);
 
 for (let i = 0; i < buttonArray.length; i++) {
     buttonArray[i].addEventListener("click", () => {
