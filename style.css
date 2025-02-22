@@ -10,6 +10,8 @@ body * {
 
 body.no-scroll {
     overflow: hidden;
+    touch-action: none;
+    overscroll-behavior: none;
 }
 
 .buttonVersionMobile-explore {
