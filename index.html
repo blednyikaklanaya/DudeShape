@@ -22,6 +22,13 @@
 
     <body>
 
+        <div id="headerNavLinkMenu" class="headerNavLinkVersionMobile">
+            <ul class="nav-link__ul-mobile">
+                <li onclick="location.href='#target-home'" class="nav-link__li-mobile">>Home</li>
+                <li onclick="location.href='#target-about'" class="nav-link__li-mobile">About</li>
+                <li onclick="location.href='#target-contact'" class="nav-link__li-mobile">Contact</li>
+            </ul>
+        </div>
         <header class="header">
             <div class="container container-header">
                 <h2 class="header__logo-title">DudeShape</h2>
@@ -37,7 +44,7 @@
 
                 <div class="header__button">
                     <img class="header__button-search" src="img/icons/search.svg">
-                    <img class="header__button-menu" src="img/icons/other.svg">
+                    <button id="buttonMenu" class="header__button-menu-div"><img class="header__button-menu" src="img/icons/other.svg"></button>
                 </div>
             </div>
         </header>
@@ -52,7 +59,7 @@
                             <div class="block__text">
                                 <h2>We Help You Make Modern Furniture</h2>
                                 <p>We will help you to make an elegant and luxurious interior designed by professional interior designer.</p>
-                                <div class="buttonVersionMobile-explore">
+                                <div onclick="location.href='#target-about'" class="buttonVersionMobile-explore">
                                     <span>Explore More</span>
                                 </div>
                             </div>

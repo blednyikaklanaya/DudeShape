@@ -1,8 +1,13 @@
 let buttonArray = document.getElementsByClassName("switcher-button");
 let switcherImg = document.getElementsByClassName("switcher-img")[0];
+
 let reccalCircleImg = document.getElementsByClassName("reccal-green-circle")[0];
 
-console.log(reccalCircleImg); // debug
+let headerNavLinkMenu = document.getElementById("headerNavLinkMenu");
+let headerNavLinksArray = Array.from(document.getElementsByClassName("nav-link__li-mobile"));
+let headerButtonMenu = document.getElementById("buttonMenu");
+
+console.log(headerNavLinksArray); // debug
 
 function observerChecker (nameElement, nameClass, loaded) {
 
@@ -24,13 +29,11 @@ document.addEventListener("DOMContentLoaded", () => {
     observerChecker(reccalCircleImg, "visible-cirle", 0.1);
 
     let allElements = Array.from(document.getElementsByTagName("*")).filter(el => !["SCRIPT", "STYLE", "META", "LINK"].includes(el.tagName));
-    console.log(allElements); 
 
     allElements.forEach(element => observerChecker(element, "unlock", 0.1));
 });
 
-
-function handleClickButton(button) {
+function handleClickButton (button) {
     for ( let button of buttonArray ) {
         button.classList.remove("active-button");
     }
@@ -40,9 +43,24 @@ function handleClickButton(button) {
     }, 50)
 }
 
+function handleClickMenu () {
+    headerNavLinkMenu.style.display ="flex";
+}
+headerNavLinksArray.forEach((button) => {
+    button.addEventListener("click", () => {
+        button.textContent = `>${button.textContent}`;
+        setTimeout(() => {
+            let text = button.textContent.split("");
+            text[0] = "";
+            button.textContent = text.join("");
+            headerNavLinkMenu.style.display ="none";
+        }, 700);
+    });
+})
+headerButtonMenu.addEventListener("click", handleClickMenu);
+
 for (let i = 0; i < buttonArray.length; i++) {
     buttonArray[i].addEventListener("click", () => {
         handleClickButton(buttonArray[i]);
-        console.log("click!");// debug
     })
 }
